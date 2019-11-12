@@ -1,7 +1,7 @@
 # Python package
 # Create and test a Python package on multiple Python versions.
 # Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/python # 'vs2017-win2016'      steps:: architecture: 'x64'
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python # 'vs2017-win2016'      steps:: architecture: 'x64'  && npm install chromedriver
 
 trigger:
 - master
@@ -23,7 +23,7 @@ jobs:
       versionSpec: '$(python.version)'
 
 
-  - script: pip install robotframework robotframework-seleniumlibrary && npm install chromedriver
+  - script: pip install robotframework robotframework-seleniumlibrary
     displayName: 'Install dependencies'
   
   - powershell: robot --pythonpath . -x outputxunit.xml TestCases.robot
