@@ -33,8 +33,8 @@ Open Tests in Souce Labs
 Open URL Locally
     #Open Webdriver hosted on Azure Devops
     ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
-    Create Webdriver    Chrome    my_alias    chrome_options=${chrome_options} #/usr/lib/chromium-browser/chromedriver
-    
+    Create Webdriver    Chrome    my_alias    chrome_options=${chrome_options}  executable_path=/usr/lib/chromium-browser/chromedriver  #/usr/lib/chromium-browser/chromedriver
+    #/Users/garyfung/Downloads
     # Open Browser on Local Machine
     # Open Browser    https://www.autohero.com/de/search/    chrome
      Maximize Browser Window
