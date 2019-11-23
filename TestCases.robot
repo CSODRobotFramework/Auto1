@@ -4,7 +4,7 @@ Library         SeleniumLibrary
 Library         String
 Library         helpers.HelpLib
 Library         Collections    
-# Suite Setup     Open URL Locally
+Suite Setup     Open URL Locally
 Suite Teardown  Close Browser
 
 
@@ -33,7 +33,7 @@ Open Tests in Souce Labs
 Open URL Locally
     #Open Webdriver hosted on Azure Devops
     # ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
-    # Create Webdriver    Chrome    executable_path=${CURDIR}/chromedriver
+     Create Webdriver    Chrome    executable_path=/usr/local/bin/chromedriver
     # my_alias    chrome_options=${chrome_options}  executable_path=/Applications/chrome/chromedriver #/usr/lib/chromium-browser/chromedriver
     #/Users/garyfung/Downloads
     # Open Browser on Local Machine
@@ -41,8 +41,8 @@ Open URL Locally
      Maximize Browser Window
 
 Open URL AutoHero
-    Open Browser    https://www.autohero.com/de/search/    chrome
-    Maximize Browser Window
+   # Open Browser    https://www.autohero.com/de/search/    chrome
+   # Maximize Browser Window
     Go To    https://www.autohero.com/de/search/   
 
 User is on Advanced Search Page
