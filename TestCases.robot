@@ -4,7 +4,7 @@ Library         SeleniumLibrary
 Library         String
 Library         helpers.HelpLib
 Library         Collections    
-# Suite Setup     Open URL Locally
+Suite Setup     Open URL Locally
 Suite Teardown  Close Browser
 
 
@@ -33,8 +33,8 @@ Open Tests in Souce Labs
 Open URL Locally
     #Open Webdriver hosted on Azure Devops
     # ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
-    Create Webdriver    Chrome    executable_path=${EXECDIR}/chromedriver
-    # my_alias    chrome_options=${chrome_options}  executable_path=${EXECDIR}/chromedriver #/usr/lib/chromium-browser/chromedriver
+    Create Webdriver    Chrome    executable_path=/Applications/chrome/chromedriver
+    # my_alias    chrome_options=${chrome_options}  executable_path=/Applications/chrome/chromedriver #/usr/lib/chromium-browser/chromedriver
     #/Users/garyfung/Downloads
     # Open Browser on Local Machine
     # Open Browser    https://www.autohero.com/de/search/    chrome
