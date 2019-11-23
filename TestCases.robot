@@ -41,8 +41,8 @@ Open URL Locally
      Maximize Browser Window
 
 Open URL AutoHero
-   # Open Browser    https://www.autohero.com/de/search/    chrome
-   # Maximize Browser Window
+    Open Browser    https://www.autohero.com/de/search/    chrome
+    Maximize Browser Window
     Go To    https://www.autohero.com/de/search/   
 
 User is on Advanced Search Page
