@@ -17,13 +17,13 @@ jobs:
         python.version: '3.7'
     maxParallel: 1
 
-  steps:
+   steps:
   - task: UsePythonVersion@0
     inputs:
       versionSpec: '$(python.version)'
+      architecture: 'x64'
 
-
-  - script: pip install robotframework robotframework-seleniumlibrary
+  - script: pip install robotframework robotframework-seleniumlibrary && npm install chromedriver
     displayName: 'Install dependencies'
   
   - powershell: robot --pythonpath . -x outputxunit.xml TestCases.robot
@@ -31,6 +31,6 @@ jobs:
   - task: PublishTestResults@2
     inputs:
       testResultsFiles: outputxunit.xml
-      searchFolder: '/Users/garyfung/Desktop/'
+      searchFolder: 'D:\a\1\s\'
       condition: succeededOrFailed()
       displayName: 'Publish Test Results outputxunit.xml'
