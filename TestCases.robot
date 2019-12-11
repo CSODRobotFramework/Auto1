@@ -4,7 +4,7 @@ Library         SeleniumLibrary
 Library         String
 Library         helpers.HelpLib
 Library         Collections    
-# Suite Setup     Open URL Locally
+Suite Setup     Open URL Locally
 Suite Teardown  Close Browser
 
 
