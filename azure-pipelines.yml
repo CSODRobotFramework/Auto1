@@ -24,7 +24,7 @@ jobs:
       architecture: 'x64'
 
   - script: pip install robotframework robotframework-seleniumlibrary && npm config set package-lock false npm install chromedriver
-    displayName: 'Install dependencies'
+    displayName: 'Install dependencies packages'
   
   - powershell: robot --pythonpath . -x outputxunit.xml TestCases.robot
     displayName: 'Run Robot Scripts'
