@@ -23,8 +23,11 @@ jobs:
       versionSpec: '$(python.version)'
       architecture: 'x64'
 
-  - script: pip install robotframework robotframework-seleniumlibrary && npm config set package-lock false npm install chromedriver
+  - script: pip install robotframework robotframework-seleniumlibrary webdrivermanager && npm config set package-lock false npm install chromedriver
     displayName: 'Install dependencies packages'
+    
+  - script: webdrivermanager chrome:$(ChromeVersion) --linkpath AUTO
+    displayName: 'Manage Chrome webdriver version'
     
   - pwsh: |
      echo "##vso[task.prependpath]$env:CHROMEWEBDRIVER"
