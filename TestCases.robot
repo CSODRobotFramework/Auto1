@@ -34,7 +34,7 @@ Open URL Locally
     #Open Webdriver hosted on Azure Devops
     #${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
     #Create Webdriver    Chrome  my_alias    chrome_options=${chrome_options}    executable_path=D:/a/1/s/node_modules/chromedriver/lib/chromedriver/chromedriver.exe
-     Create Webdriver    Chrome   executable_path=D:\\a\\1\\s\\node_modules\\chromedriver\\lib\\chromedriver\\chromedriver.exe
+     Create Webdriver    Chrome   executable_path=D://a//1//s//node_modules//chromedriver//lib//chromedriver//chromedriver.exe
     # D:\a\1\s\node_modules\chromedriver\lib\chromedriver\chromedriver.exe
     # my_alias    chrome_options=${chrome_options}  executable_path=/Applications/chrome/chromedriver #/usr/lib/chromium-browser/chromedriver
     #/Users/garyfung/Downloads
