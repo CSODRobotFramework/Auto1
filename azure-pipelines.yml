@@ -28,7 +28,6 @@ jobs:
     
   - pwsh: |
      echo "##vso[task.prependpath]$env:CHROMEWEBDRIVER"
-     displayName: Adds ChromeWebDriver for Selenium to PATH 
 
   
   - powershell: robot --pythonpath . -x outputxunit.xml TestCases.robot
