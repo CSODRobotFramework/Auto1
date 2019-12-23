@@ -3,43 +3,10 @@
 # Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
 
-trigger:
-- master
+- powershell: |
+   (Get-Item "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe").VersionInfo 
+  displayName: 'We want to know the Chrome version installed on this darned machine'
 
-jobs:
-
-- job: 'Test'
-  pool:
-    vmImage: 'windows-2019' #'vs2017-win2016'
-  strategy:
-    matrix:
-      Python37:
-        python.version: '3.7'
-    maxParallel: 1
-
-  steps:
-  - task: UsePythonVersion@0
-    inputs:
-      versionSpec: '$(python.version)'
-      architecture: 'x64'
-
-  - script: pip install robotframework robotframework-seleniumlibrary webdrivermanager && npm config set package-lock false npm install chromedriver
-    displayName: 'Install dependencies packages'
-    
-  - script: webdrivermanager chrome:$(ChromeVersion) --linkpath AUTO
-    displayName: 'Manage Chrome webdriver version'
-    
-  - pwsh: |
-     echo "##vso[task.prependpath]$env:CHROMEWEBDRIVER"
-
-  
-  - powershell: robot --pythonpath . -x outputxunit.xml TestCases.robot
-    failOnStderr: true
-    displayName: 'Run Robot Scripts'
-    continueOnError: true
-  - task: PublishTestResults@2
-    inputs:
-      testResultsFiles: outputxunit.xml
-      searchFolder: 'D:\a\1\s\'
-      condition: succeededOrFailed()
-      displayName: 'Publish Test Results outputxunit.xml'
+- pwsh: |
+    chromeDriver -v
+  displayName: Echo Chrome WebDriver version
