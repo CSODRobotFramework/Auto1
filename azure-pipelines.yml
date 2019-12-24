@@ -26,12 +26,5 @@ jobs:
   - script: pip install robotframework robotframework-seleniumlibrary webdrivermanager && npm config set package-lock false npm install chromedriver
     displayName: 'Install dependencies packages'
 
-
-- powershell: |
-   $ver = ((Get-Item "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe").VersionInfo).ProductVersion
-   echo "##vso[task.setvariable variable=ChromeVersion;isOutput=true]$ver"
-  name: GetChromeVersion
-  displayName: 'We want to know the Chrome version installed on this darned machine'
-
 - script: webdrivermanager chrome:$(GetChromeVersion.ChromeVersion) --linkpath AUTO
   displayName: 'Manage Chrome webdriver version'
