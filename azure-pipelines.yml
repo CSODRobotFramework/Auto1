@@ -26,12 +26,16 @@ jobs:
   - script: pip install robotframework robotframework-seleniumlibrary webdrivermanager && npm config set package-lock false npm install chromedriver webdrivermanager chrome:$(GetChromeVersion.ChromeVersion) --linkpath AUTO
     displayName: 'Install dependencies packages'
     
-  - powershell: robot --pythonpath . -x outputxunit.xml TestCases.robot
-    displayName: 'Run Robot Scripts'
+   #- powershell: robot --pythonpath . -x outputxunit.xml TestCases.robot
+   # displayName: 'Run Robot Scripts'
     
-  - task: PublishTestResults@2
-    inputs:
-      testResultsFiles: outputxunit.xml
-      searchFolder: 'D:\a\1\s\'
-      condition: succeededOrFailed()
-      displayName: 'Publish Test Results outputxunit.xml'
+    |
+   - powershell: (Get-Item "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe").VersionInfo 
+     displayName: 'We want to know the Chrome version installed on this darned machine'
+    
+ # - task: PublishTestResults@2
+  #  inputs:
+   #   testResultsFiles: outputxunit.xml
+   #   searchFolder: 'D:\a\1\s\'
+   #   condition: succeededOrFailed()
+   #   displayName: 'Publish Test Results outputxunit.xml'
