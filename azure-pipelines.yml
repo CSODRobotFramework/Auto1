@@ -10,7 +10,7 @@ jobs:
 
 - job: 'Test'
   pool:
-    vmImage: 'windows-2019' #'vs2017-win2016'
+    vmImage: 'Agent_RF_1' #'windows-2019' #'vs2017-win2016'
   strategy:
     matrix:
       Python37:
@@ -26,12 +26,12 @@ jobs:
   - script: pip install robotframework robotframework-seleniumlibrary webdrivermanager && npm config set package-lock false npm install chromedriver webdrivermanager chrome:$(GetChromeVersion.ChromeVersion) --linkpath AUTO
     displayName: 'Install dependencies packages'
     
-   #- powershell: robot --pythonpath . -x outputxunit.xml TestCases.robot
-   # displayName: 'Run Robot Scripts'
+    powershell: robot --pythonpath . -x outputxunit.xml TestCases.robot
+    displayName: 'Run Robot Scripts'
     
     |
-   - powershell: (Get-Item "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe").VersionInfo 
-     displayName: 'We want to know the Chrome version installed on this darned machine'
+  # - powershell: (Get-Item "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe").VersionInfo 
+  #   displayName: 'We want to know the Chrome version installed on this darned machine'
     
  # - task: PublishTestResults@2
   #  inputs:
